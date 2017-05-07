@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <style>
+    li{
+      list-style: none;
+    }
+  </style>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <img src="/images/l0.JPG">
+    <div id="aaa">
+
+    </div>
+  <script>
+    var list=<%= colors%>;
+    var names=<%-names%>;
+    var colorType=<%-colorType%>;
+    var div=document.getElementById('aaa');
+    list.forEach(function (item,idx) {
+        div.innerHTML+=`<img src="/images/${names[idx]}"><div style="height: 20px">${names[idx]}</div>`;
+        for(var i=0;i<item.length;i++){
+            let r=item[i][0],g=item[i][1],b=item[i][2];
+            div.innerHTML+=`<li style="float: left;width: 100px;height: 50px;background: rgba(${r},${g},${b},1)">${colorType[idx][i]}</li>`;
+        }
+        div.innerHTML+='<div style="height: 50px;clear: both"></div>'
+    })
+
+  </script>
+  </body>
+</html>
